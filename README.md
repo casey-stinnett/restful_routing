@@ -1,15 +1,13 @@
 # RestfulRouting
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/restful_routing`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+While developing Rails apps, it is often difficult to remember which prefixes route to which controller#action. That is why it is useful to run `rake routes` (or `rails routes` in Rails 5) and put that output in a file for later reference. This gem does that for you.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'restful_routing'
+gem 'restful_routing', group: :development
 ```
 
 And then execute:
@@ -22,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-Simply install the gem and it works!
+While developing Rails apps, it is often difficult to remember which prefixes route to which controller#action. That is why it is useful to run `rake routes` (or `rails routes` in Rails 5) and put that output in a file for later reference. This gem does that for you.
+
+After installing the gem in your Rails project, it is listening for saved changes in your `config/routes.rb`. Every time you make a change to routes.rb and you save it, restful_routing will look for `restful_routing.rb` in your root directory. It will update it if there or make it if not.
+
+`restful_routing.rb` will contain the output of `rake routes` or `rails routes`.
+
 
 ## Development
 
@@ -32,7 +35,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/restful_routing.
+Bug reports and pull requests are welcome on GitHub at https://github.com/casey-stinnett/restful_routing.
 
 
 ## License
