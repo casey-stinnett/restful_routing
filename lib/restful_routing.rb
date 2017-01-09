@@ -1,4 +1,5 @@
 require "restful_routing/version"
+require 'listen'
 
 module RestfulRouting
   base_path = Rails.root
