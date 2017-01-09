@@ -4,6 +4,7 @@ require 'listen'
 module RestfulRouting
   base_path = Rails.root.to_s
   listening_to = base_path + '/config'
+  puts "HERE IS THE PATH THAT COMES OUT: #{listening_to}"
   listener = Listen.to(listening_to, only: /routes\.rb$/) do |modified, added, removed|
   	#run `rake routes` and put the output in a file called
   	#restful_routing.rb
