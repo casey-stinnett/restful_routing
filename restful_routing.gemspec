@@ -10,7 +10,14 @@ Gem::Specification.new do |spec|
   spec.email         = ["stinnett.casey@gmail.com"]
 
   spec.summary       = %q{Auto-generate a restful_routing file for easy prefix tracking.}
-  spec.description   = %q{}
+  spec.description   = %q{
+    While developing Rails apps, it is often difficult to remember which prefixes route to which controller#action. That is why it is useful to run `rake routes` (or `rails routes` in Rails 5) and put that output in a file for later reference. This gem does that for you.
+
+    After installing the gem in your Rails project, it is listening for saved changes in your `config/routes.rb`. Every time you make a change to routes.rb and you save it, restful_routing will look for `restful_routing.rb` in your root directory. It will update it if there or make it if not.
+
+    `restful_routing.rb` will contain the output of `rake routes` or `rails routes`.
+
+  }
   spec.homepage      = "https://github.com/casey-stinnett/restful_routing"
   spec.license       = "MIT"
 
