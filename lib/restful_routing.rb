@@ -1,10 +1,12 @@
 require "restful_routing/version"
 
 module RestfulRouting
-  listener = Listen.to(Dir.pwd + '/config/routes.rb') do |modified, added, removed|
-    puts "modified absolute path: #{modified}"
-    puts "added absolute path: #{added}"
-    puts "removed absolute path: #{removed}"
+  base_path = Rails.root
+  listener = Listen.to(base_path + '/config/', only: /routes\.rb$/) do |modified, added, removed|
+  	#run `rake routes` and put the output in a file called
+  	#restful_routing.rb
+  	cmd = "rake routes > #{base_path}/restful_routing.rb" 
+  	`#{cmd}`
   end
   listener.start # not blocking
 end
