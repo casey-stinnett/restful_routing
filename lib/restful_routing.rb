@@ -2,7 +2,7 @@ require "restful_routing/version"
 require 'listen'
 
 module RestfulRouting
-  base_path = Rails.root.to_s
+  base_path = Dir.pwd
   listening_to = base_path + '/config'
   puts "HERE IS THE PATH THAT COMES OUT: #{listening_to}"
   listener = Listen.to(listening_to, only: /routes\.rb$/) do |modified, added, removed|
