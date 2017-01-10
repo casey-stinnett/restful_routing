@@ -4,11 +4,13 @@ require 'listen'
 module RestfulRouting
   base_path = Dir.pwd
   listening_to = base_path + '/config'
+
   listener = Listen.to(listening_to, only: /routes\.rb$/) do |modified, added, removed|
-  	#run `rake routes` and put the output in a file called
+  	#run `rails routes` and put the output in a file called
   	#restful_routing.rb
-  	cmd = "rake routes > #{base_path}/restful_routing.rb" 
-  	`#{cmd}`
+  	File.open(base_path + '/restful_routing.rb', 'w') do |f|
+  		f.write `rails routes`
+  	end
   end
   listener.start # not blocking
 end
