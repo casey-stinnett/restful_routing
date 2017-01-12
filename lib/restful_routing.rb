@@ -18,7 +18,7 @@ module RestfulRouting
       "Dag, yo. Your routes have seen better days.\n\n"
     ]
 
-    File.open('restful_routing.rb', 'w+') do |f|
+    File.open(base_path + '/restful_routing.rb', 'w+') do |f|
       # stdout, stderr, status, thread = Open3.capture3("rails routes")
       stdin, stdout, stderr, thread = Open3.popen3('rails routes')
 
