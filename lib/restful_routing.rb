@@ -7,9 +7,9 @@ module RestfulRouting
   listening_to = base_path + '/config'
 
   listener = Listen.to(listening_to, only: /routes\.rb$/) do |modified, added, removed|
-  	#run `rails routes` and put the output in a file called
-  	#restful_routing.rb
-  	funny_messages = [
+    #run `rails routes` and put the output in a file called
+    #restful_routing.rb
+    funny_messages = [
       "Oh, dear. Naughty, naughty! Rails knows what you typed \nand she doesn't like it...\n\n",
       "Whoops! Ya done something ya should'na. Your routes need fixin'.\n\n", 
       "Not that you're a cotton-headed-ninny-muggins, \nbut you gotta fix something to get those routes.\n\n",
@@ -41,9 +41,9 @@ module RestfulRouting
             f.write error + "\n"
           end
         end #end error_array.each
+        f.write "\nRun `rails routes` in the terminal if you want the full error."
       end #end if else
 
-      f.write "\nRun `rails routes` in the terminal if you want the full error."
     end #end File.open
   end
   listener.start # not blocking
